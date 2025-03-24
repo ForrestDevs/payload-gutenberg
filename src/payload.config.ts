@@ -17,6 +17,10 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: "http://localhost:3000",
+      collections: ["pages"],
+    },
   },
   collections,
   db: postgresAdapter({

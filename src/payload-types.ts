@@ -145,6 +145,7 @@ export interface Page {
   publishedAt?: string | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -200,8 +201,7 @@ export interface CallToActionBlock {
  * via the `definition` "MediaBlock".
  */
 export interface MediaBlock {
-  position?: ('default' | 'fullscreen') | null;
-  media: number | Media;
+  title?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'media-block';
@@ -310,6 +310,7 @@ export interface PagesSelect<T extends boolean = true> {
   publishedAt?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -335,8 +336,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
  * via the `definition` "MediaBlock_select".
  */
 export interface MediaBlockSelect<T extends boolean = true> {
-  position?: T;
-  media?: T;
+  title?: T;
   id?: T;
   blockName?: T;
 }

@@ -5,6 +5,32 @@ import { blocks } from "@/payload/blocks";
 
 const Pages: CollectionConfig = {
   slug: PAGES_SLUG,
+  admin: {
+    components: {
+      Description: {
+        path: "@/payload/custom/comps/description",
+      },
+      views: {
+        edit: {
+          gutenbergView: {
+            path: "/gutenberg",
+            Component: {
+              path: "@/payload/custom/views/gutenberg",
+            },
+          },
+          guttenberg: {
+            tab: {
+              label: "Gutenberg",
+              href: "/gutenberg",
+            },
+          },
+        },
+      },
+    },
+    livePreview: {
+      url: "http://localhost:3000/server-preview",
+    },
+  },
   fields: [
     ...slugField(),
     {
@@ -26,6 +52,13 @@ const Pages: CollectionConfig = {
       },
     },
   ],
+  versions: {
+    drafts: {
+      autosave: {
+        interval: 1,
+      },
+    },
+  },
 } as const;
 
 export default Pages;
